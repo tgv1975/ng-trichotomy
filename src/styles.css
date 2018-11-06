@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+html, body {
+	background: silver;
+}
+
+.trichotomy {
+    border: 5px solid orange;
+}
+
+.trichotomy > div {
+	border: 5px solid purple;
+}
+
+.trichotomy .centerpiece {
+    background: ivory;
+    border: 5px solid red;
+}
+
+.trichotomy .demo-top {
+    background: blue;
+    color: ivory;
+}
+
+.trichotomy .demo-bottom {
+	background: cyan;
+}
+
+.trichotomy .demo-left {
+    width: 20%;
+	background: yellow;
+}
+
+.trichotomy .demo-right {
+    width: 20%;
+    background: orange;
+}
+
+* {
+    border-width: 1px !important;
+}

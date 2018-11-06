@@ -16,6 +16,16 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ng-trichotomy": [
+        "dist/ng-trichotomy",
+        "dist/ng-trichotomy"
+      ],
+      "ng-trichotomy/*": [
+        "dist/ng-trichotomy/*",
+        "dist/ng-trichotomy/*"
+      ]
+    }
   }
 }
