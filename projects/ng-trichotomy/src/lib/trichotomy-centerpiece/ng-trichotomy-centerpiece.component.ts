@@ -1,22 +1,31 @@
 import {
     Component,
     HostBinding,
-    Input,
-    OnInit
+    ElementRef,
+    AfterViewInit
+
 } from '@angular/core';
 
 @Component({
-    // tslint:disable-next-line:component-selector
     selector: 'trichotomy-centerpiece',
     templateUrl: 'ng-trichotomy-centerpiece.component.html'
 })
-export class NgTrichotomyCenterpieceComponent implements OnInit {
+export class NgTrichotomyCenterpieceComponent implements AfterViewInit {
 
-    @HostBinding('class') cssClass = 'centerpiece';
+    @HostBinding('class.centerpiece') true;
 
-    constructor() { }
+    constructor(private el: ElementRef) { }
 
-    ngOnInit() {
+    ngAfterViewInit() {
+        this.selfCheck();
+    }
+
+    private selfCheck() {
+        const parentName = this.el.nativeElement.parentNode.nodeName;
+
+        if (parentName !== 'TRICHOTOMY') {
+            throw new TypeError(`Trichotomy centerpiece must be a direct child of a Trichotomy container. Current parent: ${parentName}.`);
+        }
     }
 
 }

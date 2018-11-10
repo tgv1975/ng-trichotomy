@@ -2,18 +2,15 @@ import {
     Component,
     HostBinding,
     Input,
-    OnInit
+    ElementRef,
+    AfterViewInit
 } from '@angular/core';
-import { StringifyOptions } from 'querystring';
-import { TouchSequence } from 'selenium-webdriver';
-import { noop } from '@angular/compiler/src/render3/view/util';
 
 @Component({
-    // tslint:disable-next-line:component-selector
     selector: 'trichotomy-bar',
     templateUrl: 'ng-trichotomy-bar.component.html'
 })
-export class NgTrichotomyBarComponent implements OnInit {
+export class NgTrichotomyBarComponent implements AfterViewInit {
 
     private _right: boolean;
     @Input()
@@ -25,9 +22,18 @@ export class NgTrichotomyBarComponent implements OnInit {
 
     @HostBinding('class.right') isRight;
 
-    constructor() { }
+    constructor(private el: ElementRef) { }
 
-    ngOnInit() {
+    ngAfterViewInit() {
+        this.selfCheck();
+    }
+
+    private selfCheck() {
+        const parentName = this.el.nativeElement.parentNode.nodeName;
+
+        if (parentName !== 'TRICHOTOMY') {
+            throw new TypeError(`Trichotomy bar must be a direct child of a Trichotomy container. Current parent: ${parentName}.`);
+        }
     }
 
 }
