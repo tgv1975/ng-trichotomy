@@ -20,7 +20,31 @@ export class NgTrichotomyBarComponent implements AfterViewInit {
     }
     get right() { return this._right; }
 
+    private _overlay: 'vertical' | 'horizontal';
+    @Input()
+    set overlay(overlay) {
+        this._overlay = overlay && overlay.toLowerCase();
+        switch (this._overlay) {
+            case 'vertical':
+                this.isOverlayVertical = true;
+                this.isOverlayHorizontal = false;
+                break;
+
+            case 'horizontal':
+                this.isOverlayHorizontal = true;
+                this.isOverlayVertical = false;
+                break;
+
+            default:
+                this.isOverlayHorizontal = false;
+                this.isOverlayVertical = false;
+                break;
+        }
+    }
+
     @HostBinding('class.right') isRight;
+    @HostBinding('class.overlay-vertical') isOverlayVertical;
+    @HostBinding('class.overlay-horizontal') isOverlayHorizontal;
 
     constructor(private el: ElementRef) { }
 

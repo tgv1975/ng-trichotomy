@@ -67,4 +67,46 @@ describe('NgTrichotomyBarComponent', () => {
 
         expect(componentEl.className).toContain('right');
     });
+
+    it('should have no overlay CSS class if no "overlay" property is set', () => {
+
+        testFixture.detectChanges();
+
+        expect(componentEl.className).not.toContain('overlay-');
+    });
+
+    it('should have "overlay-vertical" CSS class if "overlay" property is set to "vertical"', () => {
+
+        component.overlay = 'vertical';
+
+        testFixture.detectChanges();
+
+        expect(componentEl.className).toContain('overlay-vertical');
+        expect(componentEl.className).not.toContain('overlay-horizontal');
+    });
+
+    it('should have "overlay-horizontal" CSS class if "overlay" property is set to "horizontal"', () => {
+
+        component.overlay = 'horizontal';
+
+        testFixture.detectChanges();
+
+        expect(componentEl.className).toContain('overlay-horizontal');
+        expect(componentEl.className).not.toContain('overlay-vertical');
+    });
+
+    it('unsetting the "overlay" property should remove overlay-* class', () => {
+
+        component.overlay = 'horizontal';
+
+        testFixture.detectChanges();
+
+        expect(componentEl.className).toContain('overlay-horizontal');
+
+        component.overlay = null;
+
+        testFixture.detectChanges();
+
+        expect(componentEl.className).not.toContain('overlay-');
+    });
 });

@@ -30,7 +30,7 @@ export class NgTrichotomyComponent implements OnInit, AfterViewInit {
     }
     get direction() { return this._direction; }
 
-    @HostBinding('class.trichotomy') true;
+    @HostBinding('class.trichotomy') isContainer = true;
     @HostBinding('class.vertical') isVertical;
     @HostBinding('class.horizontal') isHorizontal;
 

@@ -12,7 +12,7 @@ import {
 })
 export class NgTrichotomyCenterpieceComponent implements AfterViewInit {
 
-    @HostBinding('class.centerpiece') true;
+    @HostBinding('class.centerpiece') isCenterpiece = true;
 
     constructor(private el: ElementRef) { }
 
