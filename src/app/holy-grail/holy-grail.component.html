@@ -1,0 +1,52 @@
+<trichotomy direction="vertical"
+            class="test-class">
+
+    <trichotomy-bar class="something">
+        <a [routerLink]="['']"> &laquo; Header (click to go back)</a>
+    </trichotomy-bar>
+
+    <trichotomy-centerpiece class="test-class">
+
+        <trichotomy direction="horizontal">
+
+            <trichotomy-bar class="demo-left">
+                <trichotomy direction="vertical">
+                    <trichotomy-bar>Sidebar Header</trichotomy-bar>
+                    <trichotomy-centerpiece>
+                        <div class="scroll-maker">
+                            Center
+                        </div>
+                    </trichotomy-centerpiece>
+                    <trichotomy-bar>Footer</trichotomy-bar>
+                </trichotomy>
+            </trichotomy-bar>
+
+            <trichotomy-centerpiece>
+                <div class="scroll-maker">
+                    Main Center
+                    <p>
+                        Notice how there is no full page scroll any more. All containers scroll independently.
+                    </p>
+                </div>
+            </trichotomy-centerpiece>
+
+            <trichotomy-bar right={true}
+                            class="demo-right">
+                <trichotomy direction="vertical">
+                    <trichotomy-bar>Sidebar Header</trichotomy-bar>
+                    <trichotomy-centerpiece>
+                        <div class="scroll-maker">
+                            Center
+                        </div>
+                    </trichotomy-centerpiece>
+                    <trichotomy-bar>Footer</trichotomy-bar>
+                </trichotomy>
+            </trichotomy-bar>
+
+        </trichotomy>
+
+    </trichotomy-centerpiece>
+
+    <trichotomy-bar>Footer</trichotomy-bar>
+
+</trichotomy>

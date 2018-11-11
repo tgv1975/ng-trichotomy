@@ -1,0 +1,68 @@
+<trichotomy direction="vertical"
+            class="test-class">
+
+    <trichotomy-bar *ngIf="overlaysVisible"
+                    class="main-header"
+                    [overlay]="headerOverlay">
+        <a [routerLink]="['']"> &laquo; Header (click to go back)</a>
+    </trichotomy-bar>
+
+    <trichotomy-centerpiece class="test-class">
+
+        <trichotomy direction="horizontal">
+
+            <trichotomy-bar class="demo-left">
+                <trichotomy direction="vertical">
+                    <trichotomy-bar>Sidebar Header</trichotomy-bar>
+                    <trichotomy-centerpiece>
+                        <div class="scroll-maker">
+                            Center
+                        </div>
+                    </trichotomy-centerpiece>
+                    <trichotomy-bar>Footer</trichotomy-bar>
+                </trichotomy>
+            </trichotomy-bar>
+
+            <trichotomy-centerpiece>
+                <div class="scroll-maker">
+                    Obscured content
+                    <p>
+                        Notice how the text above and the sidebar headers are is obscured by the overlay main
+                        header.
+                    </p>
+                    <p>
+                        It is the responsibility of the consumer code to hide/show an overlay bar as necessary, so
+                        as to allow visibility of the content under it.
+                    </p>
+                    <p>
+                        <button (click)="toggleOverlays()">Toggle Header & Footer Overlay Mode</button>
+                    </p>
+                    <p>
+                        <button *ngIf="overlay"
+                                (click)="toggleOverlaysVisible()">Toggle Overlay Header & Footer Visibility</button>
+                    </p>
+                </div>
+            </trichotomy-centerpiece>
+
+            <trichotomy-bar class="demo-right">
+                <trichotomy direction="vertical">
+                    <trichotomy-bar>Sidebar Header</trichotomy-bar>
+                    <trichotomy-centerpiece>
+                        <div class="scroll-maker">
+                            Center
+                        </div>
+                    </trichotomy-centerpiece>
+                    <trichotomy-bar>Footer</trichotomy-bar>
+                </trichotomy>
+            </trichotomy-bar>
+
+        </trichotomy>
+
+    </trichotomy-centerpiece>
+
+    <trichotomy-bar *ngIf="overlaysVisible"
+                    class="main-footer"
+                    [overlay]="footerOverlay"
+                    bottom>Footer</trichotomy-bar>
+
+</trichotomy>

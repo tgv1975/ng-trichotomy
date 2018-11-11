@@ -68,6 +68,19 @@ describe('NgTrichotomyBarComponent', () => {
         expect(componentEl.className).toContain('right');
     });
 
+    it('should not have "bottom" CSS class', () => {
+        expect(componentEl.className).not.toContain('bottom');
+    });
+
+    it('should have "bottom" CSS class if "bottom" property is set', () => {
+
+        component.bottom = true;
+
+        testFixture.detectChanges();
+
+        expect(componentEl.className).toContain('bottom');
+    });
+
     it('should have no overlay CSS class if no "overlay" property is set', () => {
 
         testFixture.detectChanges();
@@ -93,6 +106,10 @@ describe('NgTrichotomyBarComponent', () => {
 
         expect(componentEl.className).toContain('overlay-horizontal');
         expect(componentEl.className).not.toContain('overlay-vertical');
+    });
+
+    it('should throw if "overlay" property is invalid (neither "vertical", "horizontal", or null)', () => {
+        expect(() => component.overlay = 'diagonal').toThrowError(TypeError);
     });
 
     it('unsetting the "overlay" property should remove overlay-* class', () => {

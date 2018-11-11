@@ -5,10 +5,16 @@ import { NgTrichotomyModule } from 'ng-trichotomy';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HeaderFooterOverlayComponent } from './header-footer-overlay/header-footer-overlay.component';
+import { HolyGrailComponent } from './holy-grail/holy-grail.component';
+import { DemoComponent } from './demo/demo.component';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        HeaderFooterOverlayComponent,
+        HolyGrailComponent,
+        DemoComponent
     ],
     imports: [
         BrowserModule,

@@ -15,16 +15,24 @@ export class NgTrichotomyBarComponent implements AfterViewInit {
     private _right: boolean;
     @Input()
     set right(right) {
-        this._right = right;
-        this.isRight = right;
+        this._right = right !== undefined;
+        this.isRight = this._right;
     }
     get right() { return this._right; }
 
-    private _overlay: 'vertical' | 'horizontal';
+    private _bottom: boolean;
+    @Input()
+    set bottom(bottom) {
+        this._bottom = bottom !== undefined;
+        this.isBottom = this._bottom;
+    }
+    get bottom() { return this._bottom; }
+
+    private _overlay: 'vertical' | 'horizontal' | null;
     @Input()
     set overlay(overlay) {
-        this._overlay = overlay && overlay.toLowerCase();
-        switch (this._overlay) {
+        const temp = overlay && overlay.toLowerCase();
+        switch (temp) {
             case 'vertical':
                 this.isOverlayVertical = true;
                 this.isOverlayHorizontal = false;
@@ -35,16 +43,24 @@ export class NgTrichotomyBarComponent implements AfterViewInit {
                 this.isOverlayVertical = false;
                 break;
 
-            default:
+            case null:
                 this.isOverlayHorizontal = false;
                 this.isOverlayVertical = false;
                 break;
+
+            default:
+                // tslint:disable-next-line:max-line-length
+                throw new TypeError(`Trichotomy bar overlay property must be "vertical", "horizontal", or null. Received: ${temp}`);
+                break;
         }
+
+        this._overlay = temp;
     }
 
-    @HostBinding('class.right') isRight;
-    @HostBinding('class.overlay-vertical') isOverlayVertical;
-    @HostBinding('class.overlay-horizontal') isOverlayHorizontal;
+    @HostBinding('class.bottom') isBottom: boolean;
+    @HostBinding('class.right') isRight: boolean;
+    @HostBinding('class.overlay-vertical') isOverlayVertical: boolean;
+    @HostBinding('class.overlay-horizontal') isOverlayHorizontal: boolean;
 
     constructor(private el: ElementRef) { }
 

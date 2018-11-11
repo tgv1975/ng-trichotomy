@@ -1,0 +1,11 @@
+.main-header {
+    background: pink;
+    z-index: 1;
+    opacity: .8;
+}
+
+.main-footer {
+    background: pink;
+    z-index: 1;
+    opacity: .8;
+}
