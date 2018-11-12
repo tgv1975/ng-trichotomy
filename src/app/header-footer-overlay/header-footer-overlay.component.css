@@ -2,6 +2,7 @@
     background: pink;
     z-index: 1;
     opacity: .8;
+    height: 40px;
 }
 
 .main-footer {
