@@ -1,3 +1,4 @@
+// tslint:disable:max-line-length
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
@@ -48,7 +49,7 @@ describe('NgTrichotomyCenterpieceComponent', () => {
 
     it('throws if created outside Trichotomy parent container', () => {
         const uncontainedComponentFixture = TestBed.createComponent(NgTrichotomyCenterpieceComponent);
-        expect(() => uncontainedComponentFixture.detectChanges()).toThrowError(TypeError);
+        expect(() => uncontainedComponentFixture.detectChanges()).toThrow(new TypeError(`Trichotomy centerpiece must be a direct child of a Trichotomy container. Current parent: BODY`));
     });
 
     it('should create with no errors', () => {

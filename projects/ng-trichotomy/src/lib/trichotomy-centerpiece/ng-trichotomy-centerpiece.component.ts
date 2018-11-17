@@ -24,7 +24,7 @@ export class NgTrichotomyCenterpieceComponent implements AfterViewInit {
         const parentName = this.el.nativeElement.parentNode.nodeName;
 
         if (parentName !== 'TRICHOTOMY') {
-            throw new TypeError(`Trichotomy centerpiece must be a direct child of a Trichotomy container. Current parent: ${parentName}.`);
+            throw new TypeError(`Trichotomy centerpiece must be a direct child of a Trichotomy container. Current parent: ${parentName}`);
         }
     }
 

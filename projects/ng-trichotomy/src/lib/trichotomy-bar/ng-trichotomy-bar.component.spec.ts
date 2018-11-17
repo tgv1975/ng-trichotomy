@@ -1,3 +1,4 @@
+// tslint:disable:max-line-length
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
@@ -48,15 +49,21 @@ describe('NgTrichotomyBarComponent', () => {
 
     it('throws if created outside Trichotomy parent container', () => {
         const uncontainedComponentFixture = TestBed.createComponent(NgTrichotomyBarComponent);
-        expect(() => uncontainedComponentFixture.detectChanges()).toThrowError(TypeError);
+        expect(() => uncontainedComponentFixture.detectChanges()).toThrow(new TypeError(`Trichotomy bar must be a direct child of a Trichotomy container. Current parent: BODY`));
     });
 
     it('should create with no errors', () => {
         expect(component).toBeTruthy();
     });
 
+
     it('should not have "right" CSS class', () => {
         expect(componentEl.className).not.toContain('right');
+    });
+
+    it('should get "right" property as its last set value', () => {
+        component.right = true;
+        expect(component.right).toBe(true);
     });
 
     it('should have "right" CSS class if "right" property is set', () => {
@@ -70,6 +77,12 @@ describe('NgTrichotomyBarComponent', () => {
 
     it('should not have "bottom" CSS class', () => {
         expect(componentEl.className).not.toContain('bottom');
+    });
+
+
+    it('should get "bottom" property as its last set value', () => {
+        component.bottom = true;
+        expect(component.bottom).toBe(true);
     });
 
     it('should have "bottom" CSS class if "bottom" property is set', () => {

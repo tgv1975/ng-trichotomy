@@ -51,7 +51,6 @@ export class NgTrichotomyBarComponent implements AfterViewInit {
             default:
                 // tslint:disable-next-line:max-line-length
                 throw new TypeError(`Trichotomy bar overlay property must be "vertical", "horizontal", or null. Received: ${temp}`);
-                break;
         }
 
         this._overlay = temp;
@@ -72,7 +71,7 @@ export class NgTrichotomyBarComponent implements AfterViewInit {
         const parentName = this.el.nativeElement.parentNode.nodeName;
 
         if (parentName !== 'TRICHOTOMY') {
-            throw new TypeError(`Trichotomy bar must be a direct child of a Trichotomy container. Current parent: ${parentName}.`);
+            throw new TypeError(`Trichotomy bar must be a direct child of a Trichotomy container. Current parent: ${parentName}`);
         }
     }
 
