@@ -18,8 +18,8 @@
         ]
     },
     "angularCompilerOptions": {
-        "enableIvy": false,
-        "skipTemplateCodegen": true,
+      "compilationMode": "partial",
+      "skipTemplateCodegen": true,
         "strictMetadataEmit": true,
         "fullTemplateTypeCheck": true,
         "strictInjectionParameters": true,
