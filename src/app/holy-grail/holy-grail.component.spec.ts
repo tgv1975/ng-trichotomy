@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { HolyGrailComponent } from './holy-grail.component';
 
@@ -6,7 +6,7 @@ describe('HolyGrailComponent', () => {
   let component: HolyGrailComponent;
   let fixture: ComponentFixture<HolyGrailComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ HolyGrailComponent ]
     })

@@ -1,7 +1,7 @@
 // tslint:disable:max-line-length
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NgTrichotomyBarComponent } from './ng-trichotomy-bar.component';
 
@@ -28,7 +28,7 @@ describe('NgTrichotomyBarComponent', () => {
     let component: NgTrichotomyBarComponent;
     let componentEl: Element;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             declarations: [
                 TestHostComponent,
